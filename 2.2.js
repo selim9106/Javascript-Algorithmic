@@ -15,10 +15,13 @@ max =
   ); /* ==> transforme une chaine de caractères "string" en nombre entier*/
 
 if (min > max) {
-  alert("Not this way");
+  alert("You're second number must be bigger than the first one");
 } else {
   let current = prompt("Enter you're favourite number");
-  if (current >= min || current <= max) {
-    alert("You're third number is between " + min + " and " + max);
+  if (current >= min && current <= max) {
+    alert("You're favourite number is between " + min + " and " + max);
+  }
+  else {
+    alert("You're favourite number is not between " + min + " and " + max);
   }
 }

@@ -10,7 +10,7 @@ switch (num) {
     alert("Monday");
     break;
 
-  case "2":
+  case 2:
     alert("Tuesday");
     break;
 

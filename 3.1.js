@@ -6,6 +6,33 @@ Test it with the following arrays:
 [100, 101, 102] => 303
 */
 
+
+let nums = [1, 2, 3, 4, 5];
+let othernums = [100, 101, 102];
+
+// * la simple loop:
+// let sum=0;
+// for (let num of nums) {
+//   sum += (parseInt(num));
+// }
+// console.log(sum);
+
+
+addValues(othernums);
+
+// ! la fonction qui peut s'appliquer à n'importe quelle array
+function addValues(arr) {
+  let sum=0;
+  for (let item of arr) {
+    sum += parseInt(item);
+  }
+  console.log(sum);
+}
+
+
+
+
+
 /* 1st Example ==> facile qd peu d'items à ajouter
 let arr = [1, 2, 3, 4, 5];
 
@@ -23,10 +50,10 @@ console.log(arr);
 
 console.log(array);*/
 
-let arr = Array(204)
-  .fill(1)
-  .map((element, index) => index + 100);
-/* soit une array de 202 items où chaque élément se voit ajouter la valeur de 100 (0+100; 1+100,...) */
-console.log(arr);
+// let arr = Array(204)
+//   .fill(1)
+//   .map((element, index) => index + 100);
+// /* soit une array de 202 items où chaque élément se voit ajouter la valeur de 100 (0+100; 1+100,...) */
+// console.log(arr);
 
 /* ==> https://stackoverflow.com/questions/3751520/how-to-generate-sequence-of-numbers-chars-in-javascript */
