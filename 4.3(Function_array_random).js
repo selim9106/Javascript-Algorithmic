@@ -7,21 +7,11 @@ Use that function to create a program that will ask the number of random numbers
 
 let numOfNums = prompt('enter how many random numbers you want to generate');
 
-// function multiRand(n) {
-//   let arr = [];
-//   arr.length = n;
-  // for (let item of arr) {
-  //   // item.value = rand10();
-  // } 
-  // return arr
-// }
-
 
 // ! as it is an arrow function, it has to be declared BEFORE being used/called
 let multiRand = (n) => Array.from({length:n}, () => rand10());
 
 console.log(multiRand(numOfNums));
-
 
 function rand10() {
   return parseInt(Math.floor(Math.random() * 10) + 1);

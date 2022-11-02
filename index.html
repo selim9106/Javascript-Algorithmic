@@ -8,7 +8,25 @@
     
   </head>
   <body>
-    <p id="#answer"></p>
-    <script src="./4.3.js"></script>
+    <form id="form">
+    <label for="seriename">
+      <input type="text" name="seriename" placeholder="Enter a TV show">
+    </label>
+    <label for="year">
+      <input type="number" name="year">
+    </label>
+    <label for="castmembers">
+      <input type="text" name="castmembers">
+    </label>
+    <button class="btn" type="submit">send</button>
+  </form>
+
+  <div class="data-container">
+    <h2 class="data__title"></h2>
+    <h3 class="data__year"></h3>
+    <p class="data__castmembers"></p>
+  </div>
+
+  <script src="./6.1.js"></script>
   </body>
 </html>
