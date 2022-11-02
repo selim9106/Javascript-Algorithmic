@@ -9,4 +9,6 @@ class Rectangle {
         this.width = width;
         this.length = length;
     }
+
+    collides() {}
 }
