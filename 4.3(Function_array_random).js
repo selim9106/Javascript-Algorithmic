@@ -1,4 +1,4 @@
-/*By reusing the function rand10() created in Exercise 2, write a function named multiRand(n) that returns an array of n numbers between 1 and 10. You should not modify anything in rand10() to achieve this.
+/*By reusing the function rand10() created in last exercise, write a function named multiRand(n) that returns an array of n numbers between 1 and 10. You should not modify anything in rand10() to achieve this.
 
 Write a documentation for the multiRand(n) function.
 
