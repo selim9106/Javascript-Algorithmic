@@ -11,7 +11,6 @@ class Rectangle {
     }
 
     collides(otherRectangle) {
-        // otherRectangle = new Rectangle();
         if (
             (this.topLeftXpos < (otherRectangle.topLeftXpos + otherRectangle.width)) && ((this.topLeftXpos + this.width)>otherRectangle.topLeftXpos) && (this.topLeftYpos<(otherRectangle.topLeftYpos + otherRectangle.length)) && ((this.length + this.topLeftYpos) > otherRectangle.topLeftYpos)
             ) {return true} else {return false};
@@ -32,39 +31,44 @@ console.log(rect1.collides(rect3)); // return true as they will collide
 
 const generateRandomValue = (n) => Math.floor((Math.random() * n));
 
-// let x = generateRandomValue(10);
-// let y = generateRandomValue(10);
-// let w = generateRandomValue(10);
-// let h = generateRandomValue(10);
-// let newRectangle = new Rectangle(x, y, w, h);
-
-// let rectanglesList = {};
-// console.log(generateObjects(10));
-
-// function generateObjects(times) {
-//     let x = generateRandomValue(10);
-//     let y = generateRandomValue(10);
-//     let w = generateRandomValue(10);
-//     let h = generateRandomValue(10);
-//     let obj = new Rectangle(x, y, w, h);
-
-//     return Array.from({ length: times}, () => {obj);
-// }
-
-function generateRectangleParams() {
-    let x = generateRandomValue(10);
-    let y = generateRandomValue(10);
-    let w = generateRandomValue(10);
-    let h = generateRandomValue(10);
-    let values = [x, y, w, h];
-    let valuesToObject = Object.assign({},values);
-    return valuesToObject;
-}
-console.log(generateRectangleParams());
-
-function generateObjects(times) {
-    return Array.from({ length: times}, () => 
-        new Rectangle(generateRectangleParams()));
+function generateRandomRectangle() {
+    let x = generateRandomValue(400);
+    let y = generateRandomValue(400);
+    let w = generateRandomValue(100);
+    let h = generateRandomValue(100);
+    return new Rectangle(x, y, w, h);
 }
 
-console.log(generateObjects(10));
+function generateAllRectangles(times) {
+    let rectangles = [];
+    for (let i = 0; i < times; i++) {
+        rectangles.push(generateRandomRectangle())
+    }
+    return rectangles;
+}
+
+let allrectangles = generateAllRectangles(50);
+
+function testCollision(rectangles) {
+    rectangles.forEach((rectangle, index) => {
+        for (let i = 0; i < rectangles.length; i++) {
+            if ((index != i) && (rectangle.collides(rectangles[i]))) {
+                console.log("rectangle " + index + " collides with rectangle " + i);
+            }
+        } 
+    })
+}
+
+testCollision(allrectangles);
+
+let drawingzone = document.getElementById("drawing-zone");
+console.log(drawingzone);
+
+let ctx = drawingzone.getContext("2d"); 
+
+
+allrectangles.forEach(rectangle => {
+    ctx.beginPath();
+    ctx.rect(rectangle.topLeftXpos,rectangle.topLeftYpos,rectangle.width,rectangle.length);
+    ctx.stroke();
+})
